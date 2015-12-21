@@ -6,12 +6,8 @@
 <html>
 <head>
 	<meta charset='utf-8'>
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>CheapoMail Home</title>
-	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
-	<link href='http://fonts.googleapis.com/css?family=Sofia' rel='stylesheet' type='text/css'>
-	<link href='https://fonts.googleapis.com/css?family=Arimo' rel="stylesheet" type="text/css">
 	<link rel="stylesheet" type="text/css" href="style-hp.css">
 	<script type="text/javascript" src="popup.js"></script>
 	<script type="text/javascript" src="cheapomail.js"></script>
@@ -20,17 +16,15 @@
 	<script> $(document).ready(function(){
 				setInterval(function(){
 					$("#userList").load("user_listing.php");
-				}, 1000); //AUTO LOAD USER LIST every sec
-				// Get userid of current logged in user
+				}, 1000); 
 				var userID = document.getElementById("userID").value;
 				
 		
 				setInterval(function(){
 				
 					$("#inbox").load("cheapomailInbox.php?id="+userID);
-					//refresh++;
 					
-				}, 2000); // AUTO LoAD inbox messages
+				}, 2000); 
 			}); 
 		
 	</script> 
@@ -45,13 +39,11 @@
 				<div class="topright">
 					<span id="username">
 						<?php
-							// Logged in User for home screen
  							if (isset($_SESSION["username"])) {
 								echo $_SESSION["username"];
 							}
 						?>
-					</span> <!-- UserName -->
-					<!-- Hidden Fields for Session Data -->
+					</span> 
 					<input type="hidden" id="user" value="<?=$_SESSION['username'];?>"></input>
 					<input type="hidden" id="userID" value="<?=$_SESSION['userID'];?>"></input>
 					<input type="hidden" id="loginTime" value="<?=$_SESSION['loginTime'];?>"></input>
@@ -67,7 +59,7 @@
 						<?php if (isset($_SESSION["username"])) { 
 								if($_SESSION["username"] != "Admin"){ 
 									echo "hidden";}}
-						?>"> <!-- Only visible for Admin user-->
+					
 		</div>
 	</div>
 	<div class="body">
@@ -76,7 +68,6 @@
 				<div class="oo">
 					<div class="nm">
 						<div class="tk" id="userList"> 
-						<!-- individual Usernames displayed here using the format below -->
 							<div class="aim ain">
 								<div class="aiq to nZ">
 									<div class="TN">
@@ -110,12 +101,10 @@
 							</div>
 							
 						</div>
-						<!--end of individual --> 
 					</div>
 				</div>
 			</div>
 		</div>
-		<!-- end of body left -->
 		<div class="body-right">
 			<div id="inbox"> <!-- INBOX -->
 				<table class="table table-mail"> 
@@ -293,13 +282,9 @@
 				</table>
 			</div>
 		</div>
-		<!-- end of body middle -->
 		<div class="body-last" id="msgView">
-					
-			
 		</div>
 	</div>
-	<!-- end of body -->
 	<div id="popup-box" class="popup-position"> <!-- COMPOSE MESSAGE POP UP -->
 		<div id="popup-wrapper">
 			<div id="popup-container">
